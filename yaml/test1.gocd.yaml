@@ -12,6 +12,7 @@ pipelines:
             testJob: 
               tasks: 
                - exec: 
-                   command: echo
+                   working_directory: app
+                   command: make
                    arguments:
-                    - "hello world"
+                    - hello
