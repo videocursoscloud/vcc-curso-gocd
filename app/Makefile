@@ -3,4 +3,4 @@ SHELL:=/bin/bash
 hello:
 	@echo hello from $(GIT_SHORT_TAG)
 build:
-	docker build -t nginx-test-$(GIT_SORT_TAG) .
+	docker build -t nginx-test-$(GIT_SHORT_TAG) .
