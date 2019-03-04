@@ -1,0 +1,37 @@
+format_version: 3 pipelines:
+  test:
+    group: defaultGroup
+    label_template: ${COUNT}
+    lock_behavior: none
+    materials:
+      git:
+        git: https://github.com/videocursoscloud/Python-example-app.git
+        shallow_clone: false
+        auto_update: true
+        branch: master
+    stages:
+    - defaultStage:
+        fetch_materials: true
+        keep_artifacts: false
+        clean_workspace: false
+        approval:
+          type: success
+        jobs:
+          defaultJob:
+            timeout: 0
+            artifacts:
+            - external:
+                id: testfile
+                store_id: s3bucket
+                configuration:
+                - key: Source
+                  value: testfile
+                - key: Destination
+                  value: testfile
+            tasks:
+            - exec:
+                arguments:
+                - testfile
+                command: touch
+                run_if: passed
+	
