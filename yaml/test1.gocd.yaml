@@ -1,25 +1,17 @@
 format_version: 3
 pipelines:
-  test:
-    group: defaultGroup
+  testpipeline1: 
+    group: defaultGroupp
     materials:
-      git:
-        git: https://github.com/videocursoscloud/Python-example-app.git
-        shallow_clone: false
-        auto_update: true
-        branch: master
-    stages:
-      - defaultStage:
-        fetch_materials: true
-        keep_artifacts: false
-        clean_workspace: false
-        approval:
-          type: success
-        jobs:
-          defaultJob:
-            tasks:
-            - exec:
-                arguments:
-                - testfile
-                  command: touch
-                  run_if: passed
+      mygit: 
+        git: git@github.com:videocursoscloud/vcc-curso-gocd.git
+    stages: # list of stages in order
+      - testStage: 
+          clean_workspace: true
+          jobs:
+            testJob: 
+              tasks: 
+               - exec: 
+                   command: echo
+                   arguments:
+                    - "hello world"
