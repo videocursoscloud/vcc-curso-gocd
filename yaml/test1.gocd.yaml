@@ -1,4 +1,5 @@
-format_version: 3 pipelines:
+format_version: 3 
+pipelines:
   test:
     group: defaultGroup
     label_template: ${COUNT}
