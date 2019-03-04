@@ -5,10 +5,6 @@ GoCD.script {
     pipeline('build') {
       group = 'go-cd'
       lockBehavior = 'lockOnFailure'
-      trackingTool {
-        link = 'https://github.com/ketan/gocd-groovy-dsl-config-plugin/issues/${ID}'
-        regex = ~/##(\d+)/
-      }
 
       environmentVariables = [
         'pipeline-var': 'pipeline-value'
