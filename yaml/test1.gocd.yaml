@@ -11,7 +11,7 @@ pipelines:
         auto_update: true
         branch: master
     stages:
-    - defaultStage:
+      - defaultStage:
         fetch_materials: true
         keep_artifacts: false
         clean_workspace: false
