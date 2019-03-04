@@ -1,7 +1,7 @@
 format_version: 3
 pipelines:
-  testpipeline1: 
-    group: defaultGroupp
+  app: 
+    group: defaultGroup
     materials:
       mygit: 
         git: git@github.com:videocursoscloud/vcc-curso-gocd.git
