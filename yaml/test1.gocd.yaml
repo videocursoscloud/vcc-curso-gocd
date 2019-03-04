@@ -6,7 +6,7 @@ pipelines:
       mygit: 
         git: git@github.com:videocursoscloud/vcc-curso-gocd.git
     stages: # list of stages in order
-      - testStage: 
+      - hello: 
           clean_workspace: true
           jobs:
             testJob: 
@@ -16,3 +16,13 @@ pipelines:
                    command: make
                    arguments:
                     - hello
+      - build: 
+          clean_workspace: true
+          jobs:
+            testJob: 
+              tasks: 
+               - exec: 
+                   working_directory: app
+                   command: make
+                   arguments:
+                    - build
