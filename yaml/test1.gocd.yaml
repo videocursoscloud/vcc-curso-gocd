@@ -1,4 +1,4 @@
-format_version: 3 
+format_version: 3
 pipelines:
   test:
     group: defaultGroup
@@ -35,4 +35,3 @@ pipelines:
                 - testfile
                 command: touch
                 run_if: passed
-	
