@@ -1,4 +1,6 @@
+GIT_SHORT_TAG := $(shell git rev-parse --short HEAD)
+SHELL:=/bin/bash
 hello:
-	echo helloworld
+	@echo hello from $(GIT_SHORT_TAG)
 build:
-	docker build -t nginx-test .
+	docker build -t nginx-test-$(GIT_SORT_TAG) .
