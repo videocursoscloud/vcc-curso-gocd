@@ -19,25 +19,8 @@ pipelines:
           type: success
         jobs:
           defaultJob:
-            artifacts:
-              - external:
-                id: dockerimage
-                store_id: mijack
-                configuration:
-                - key: Image
-                  value: mijack/vcc-gocd-app
-                - key: Tag
-                  value: v${GO_TO_REVISION_MYGIT}
-              - external:
-                id: dockerimage2
-                store_id: mijack
-                configuration:
-                - key: Image
-                  value: mijack/vcc-gocd-app
-                - key: Tag
-                  value: latest
             tasks:
-            - exec:
+              - exec:
                 arguments:
                 - build
                   command: make
