@@ -1,0 +1,52 @@
+format_version: 3 pipelines:
+  vcc-gocd-app:
+    group: defaultGroup
+    label_template: ${COUNT}
+    lock_behavior: none
+    environment_variables:
+      APP_NAME: vcc-gocd-app
+    materials:
+      mygit:
+        git: git@github.com:videocursoscloud/vcc-curso-gocd.git
+        shallow_clone: false
+        auto_update: true
+        branch: master
+        name: mygit
+    stages:
+    - defaultStage:
+        fetch_materials: true
+        keep_artifacts: false
+        clean_workspace: false
+        approval:
+          type: success
+        jobs:
+          defaultJob:
+            timeout: 0
+            artifacts:
+            - external:
+                id: dockerimage
+                store_id: mijack
+                configuration:
+                - key: Image
+                  value: mijack/vcc-gocd-app
+                - key: Tag
+                  value: v${GO_TO_REVISION_MYGIT}
+                - key: BuildFile
+                  value: ''
+            - external:
+                id: dockerimage2
+                store_id: mijack
+                configuration:
+                - key: Image
+                  value: mijack/vcc-gocd-app
+                - key: Tag
+                  value: latest
+                - key: BuildFile
+                  value: ''
+            tasks:
+            - exec:
+                arguments:
+                - build
+                command: make
+                working_directory: app/
+                run_if: passed
