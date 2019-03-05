@@ -1,0 +1,104 @@
+{
+  "group": "defaultGroup",
+  "name": "test",
+  "label_template": "${COUNT}",
+  "lock_behavior": "none",
+  "environment_variables": [
+    {
+      "name": "APP_NAME",
+      "value": "vcc-gocd-app"
+    }
+  ],
+  "parameters": [],
+  "materials": [
+    {
+      "url": "git@github.com:videocursoscloud/vcc-curso-gocd.git",
+      "branch": "master",
+      "shallow_clone": false,
+      "filter": {
+        "ignore": [],
+        "whitelist": []
+      },
+      "auto_update": true,
+      "name": "mygit",
+      "type": "git"
+    }
+  ],
+  "stages": [
+    {
+      "name": "defaultStage",
+      "fetch_materials": true,
+      "never_cleanup_artifacts": false,
+      "clean_working_directory": false,
+      "approval": {
+        "type": "success",
+        "users": [],
+        "roles": []
+      },
+      "environment_variables": [],
+      "jobs": [
+        {
+          "name": "defaultJob",
+          "environment_variables": [],
+          "tabs": [],
+          "resources": [],
+          "artifacts": [
+            {
+              "id": "dockerimage",
+              "store_id": "mijack",
+              "configuration": [
+                {
+                  "key": "Image",
+                  "value": "mijack/vcc-gocd-app"
+                },
+                {
+                  "key": "Tag",
+                  "value": "v${GO_TO_REVISION_MYGIT}"
+                },
+                {
+                  "key": "BuildFile",
+                  "value": ""
+                }
+              ],
+              "type": "external"
+            },
+            {
+              "id": "dockerimage2",
+              "store_id": "mijack",
+              "configuration": [
+                {
+                  "key": "Image",
+                  "value": "mijack/vcc-gocd-app"
+                },
+                {
+                  "key": "Tag",
+                  "value": "latest"
+                },
+                {
+                  "key": "BuildFile",
+                  "value": ""
+                }
+              ],
+              "type": "external"
+            }
+          ],
+          "properties": [],
+          "run_instance_count": "0",
+          "timeout": 0.0,
+          "tasks": [
+            {
+              "command": "make",
+              "working_directory": "app/",
+              "timeout": -1.0,
+              "arguments": [
+                "build"
+              ],
+              "run_if": "passed",
+              "type": "exec"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
