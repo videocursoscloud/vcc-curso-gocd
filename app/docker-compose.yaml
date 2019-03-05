@@ -1,0 +1,6 @@
+version: '3'
+services:
+  web:
+    image: mijack/vcc-gocd-app:latest
+    ports:
+      - "${HTTP_LOCAL_PORT}:80"
