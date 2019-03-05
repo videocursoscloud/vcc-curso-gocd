@@ -24,7 +24,7 @@
         "ignore": [],
         "whitelist": []
       },
-      "auto_update": false,
+      "auto_update": true,
       "name": "mygit",
       "type": "git"
     }
