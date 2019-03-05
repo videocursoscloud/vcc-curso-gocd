@@ -20,7 +20,7 @@ pipelines:
         jobs:
           defaultJob:
             artifacts:
-            - external:
+              - external:
                 id: dockerimage
                 store_id: mijack
                 configuration:
@@ -28,7 +28,7 @@ pipelines:
                   value: mijack/vcc-gocd-app
                 - key: Tag
                   value: v${GO_TO_REVISION_MYGIT}
-            - external:
+              - external:
                 id: dockerimage2
                 store_id: mijack
                 configuration:
@@ -40,6 +40,6 @@ pipelines:
             - exec:
                 arguments:
                 - build
-                command: make
-                working_directory: app/
-                run_if: passed
+                  command: make
+                  working_directory: app/
+                  run_if: passed
