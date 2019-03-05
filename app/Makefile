@@ -1,5 +1,5 @@
 SHELL:=/bin/bash
 hello:
-	@echo hello from $(GIT_SHORT_TAG)
+	@echo hello from $(GO_TO_REVISION_MYGIT)
 build:
-	docker build -t $(APP_NAME)-$(GIT_SHORT_TAG) .
+	docker build -t $(APP_NAME)-$(GO_TO_REVISION_MYGIT) .
