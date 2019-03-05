@@ -27,7 +27,7 @@ pipelines:
               configuration:
                 options:
                   Image: mijack/vcc-gocd-app
-                  Tag: v${GO_TO_REVISION_MYGIT[:8]}
+                  Tag: v${GO_TO_REVISION_MYGIT}
           jobs:
             testJob:
               tasks:
