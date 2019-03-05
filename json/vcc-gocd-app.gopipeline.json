@@ -36,7 +36,7 @@
       "never_cleanup_artifacts": false,
       "clean_working_directory": false,
       "approval": {
-        "type": "success",
+        "type": "manual",
         "users": [],
         "roles": []
       },
