@@ -13,7 +13,7 @@ pipelines:
         branch: master
         name: mygit
     stages:
-    - defaultStage:
+      - defaultStage:
         clean_workspace: true
         approval:
           type: success
