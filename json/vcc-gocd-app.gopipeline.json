@@ -1,7 +1,7 @@
 {
   "format_version" : 3
   "group": "defaultGroup",
-  "name": "test",
+  "name": "vcc-curso-gocd",
   "label_template": "${COUNT}",
   "lock_behavior": "none",
   "environment_variables": [
