@@ -1,4 +1,4 @@
-$(GO_TO_REVISION_MYGIT)SHELL:=/bin/bash
+SHELL:=/bin/bash
 hello:
 	@echo hello from $(GO_TO_REVISION_MYGIT)
 build:
