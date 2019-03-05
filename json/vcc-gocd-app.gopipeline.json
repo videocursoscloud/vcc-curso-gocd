@@ -8,6 +8,10 @@
     {
       "name": "APP_NAME",
       "value": "vcc-gocd-app"
+    },
+    {
+      "name": "HTTP_LOCAL_TEST_PORT",
+      "value": "8088"
     }
   ],
   "parameters": [],
@@ -20,7 +24,7 @@
         "ignore": [],
         "whitelist": []
       },
-      "auto_update": true,
+      "auto_update": false,
       "name": "mygit",
       "type": "git"
     }
@@ -93,6 +97,41 @@
               "timeout": -1.0,
               "arguments": [
                 "build"
+              ],
+              "run_if": "passed",
+              "type": "exec"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "test",
+      "fetch_materials": true,
+      "never_cleanup_artifacts": false,
+      "clean_working_directory": false,
+      "approval": {
+        "type": "success",
+        "users": [],
+        "roles": []
+      },
+      "environment_variables": [],
+      "jobs": [
+        {
+          "name": "defaultJob",
+          "environment_variables": [],
+          "tabs": [],
+          "resources": [],
+          "properties": [],
+          "run_instance_count": "0",
+          "timeout": 0.0,
+          "tasks": [
+            {
+              "command": "make",
+              "working_directory": "app/",
+              "timeout": -1.0,
+              "arguments": [
+                "test"
               ],
               "run_if": "passed",
               "type": "exec"
