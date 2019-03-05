@@ -4,6 +4,7 @@ pipelines:
     environment_variables:
       APP_NAME: test-nginx
       GIT_SHORT_TAG=${GO_TO_REVISION_MYGIT[:8]}
+      GIT_SHORT_TAG2=thisisatest
     group: defaultGroup
     materials:
       mygit: 
