@@ -12,34 +12,3 @@ pipelines:
         auto_update: false
         branch: master
         name: mygit
-    stages:
-      - defaultStage:
-        clean_workspace: true
-        approval:
-          type: success
-        jobs:
-          defaultJob:
-            artifacts:
-            - external:
-                id: dockerimage
-                store_id: mijack
-                configuration:
-                - key: Image
-                  value: mijack/vcc-gocd-app
-                - key: Tag
-                  value: v${GO_TO_REVISION_MYGIT}
-            - external:
-                id: dockerimage2
-                store_id: mijack
-                configuration:
-                - key: Image
-                  value: mijack/vcc-gocd-app
-                - key: Tag
-                  value: latest
-            tasks:
-            - exec:
-                arguments:
-                - build
-                command: make
-                working_directory: app/
-                run_if: passed
