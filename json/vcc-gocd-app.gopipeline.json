@@ -1,5 +1,5 @@
 {
-  "format_version" : 3
+  "format_version" : 3,
   "group": "defaultGroup",
   "name": "vcc-curso-gocd",
   "label_template": "${COUNT}",
