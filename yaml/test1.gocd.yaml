@@ -20,6 +20,14 @@ pipelines:
                     - hello
       - build: 
           clean_workspace: true
+          artifacts:
+            - external:
+              id: docker
+              store_id: mijack
+              configuration:
+                options:
+                  Image: mijack/vcc-gocd-app
+                  Tag: v${GO_TO_REVISION_MYGIT[:8]}
           jobs:
             testJob: 
               tasks: 
