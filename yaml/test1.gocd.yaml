@@ -2,7 +2,7 @@ format_version: 3
 pipelines:
   test-nginx: 
     environment_variables:
-      APP_NAME=test-nginx
+      APP_NAME: test-nginx
     group: defaultGroup
     materials:
       mygit: 
