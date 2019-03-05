@@ -8,20 +8,16 @@ format_version: 3 pipelines:
     materials:
       mygit:
         git: git@github.com:videocursoscloud/vcc-curso-gocd.git
-        shallow_clone: false
-        auto_update: true
+        auto_update: false
         branch: master
         name: mygit
     stages:
     - defaultStage:
-        fetch_materials: true
-        keep_artifacts: false
-        clean_workspace: false
+        clean_workspace: true
         approval:
           type: success
         jobs:
           defaultJob:
-            timeout: 0
             artifacts:
             - external:
                 id: dockerimage
@@ -31,8 +27,6 @@ format_version: 3 pipelines:
                   value: mijack/vcc-gocd-app
                 - key: Tag
                   value: v${GO_TO_REVISION_MYGIT}
-                - key: BuildFile
-                  value: ''
             - external:
                 id: dockerimage2
                 store_id: mijack
@@ -41,8 +35,6 @@ format_version: 3 pipelines:
                   value: mijack/vcc-gocd-app
                 - key: Tag
                   value: latest
-                - key: BuildFile
-                  value: ''
             tasks:
             - exec:
                 arguments:
